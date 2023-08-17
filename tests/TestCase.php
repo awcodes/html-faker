@@ -2,8 +2,8 @@
 
 namespace Awcodes\HtmlFaker\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Awcodes\HtmlFaker\HtmlFakerServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

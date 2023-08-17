@@ -31,8 +31,8 @@ class HtmlFaker
     {
         if ($withRandomLinks) {
             $this->output .= '<p>' . collect($this->faker->paragraphs($count))->map(function ($paragraph) {
-                    return $paragraph . ' <a href="' . $this->faker->url() . '">' . $this->faker->words(rand(3, 8), true) . '</a>';
-                })->implode('</p><p>') . '</p>';
+                return $paragraph . ' <a href="' . $this->faker->url() . '">' . $this->faker->words(rand(3, 8), true) . '</a>';
+            })->implode('</p><p>') . '</p>';
 
             return $this;
         } else {
@@ -88,7 +88,7 @@ class HtmlFaker
         return $this;
     }
 
-    public function code(string | null $className = 'hljs'): static
+    public function code(?string $className = 'hljs'): static
     {
         $this->output .= "<pre class=\"{$className}\"><code>export default function testComponent({\n\nstate,\n\n}) {\n\nreturn {\n\nstate,\n\ninit: function () {\n\n// Initialise the Alpine component here, if you need to.\n\n},\n\n}\n\n}</code></pre>";
 
