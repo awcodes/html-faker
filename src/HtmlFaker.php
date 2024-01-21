@@ -46,8 +46,13 @@ class HtmlFaker
     {
         if ($withRandomLinks) {
             $this->output .= '<p>' . collect($this->faker->paragraphs($count))->map(function ($paragraph) {
-                return $paragraph . ' <a href="' . $this->faker->url() . '">' . $this->faker->words(rand(3, 8), true) . '</a>';
-            })->implode('</p><p>') . '</p>';
+                    $paragraphWords = explode(' ', $paragraph);
+                    $key = array_rand($paragraphWords);
+
+                    $paragraphWords[$key] = '<a href="' . $this->faker->url() . '">' . $this->faker->words(rand(3, 8), true) . '</a>';
+
+                    return implode(' ', $paragraphWords);
+                })->implode('</p><p>') . '</p>';
 
             return $this;
         } else {
