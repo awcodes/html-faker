@@ -138,12 +138,12 @@ class HtmlFaker
         return $this;
     }
 
-    public function grid(array $cols = [1,1,1]): static
+    public function grid(array $cols = [1, 1, 1]): static
     {
         $this->output .= '<div class="grid" data-type="responsive" data-cols="' . count($cols) . '" style="grid-template-columns: repeat(3, 1fr);" data-stack-at="md">';
 
         foreach ($cols as $col) {
-            $this->output .= '<div class="grid__column" data-col-span="' . $col . '" style="grid-column: span 1;"><h2>' . Str::title($this->faker->words(rand(3, 8), true)) . '</h2><p>' . $this->faker->paragraph(). '</p></div>';
+            $this->output .= '<div class="grid__column" data-col-span="' . $col . '" style="grid-column: span 1;"><h2>' . Str::title($this->faker->words(rand(3, 8), true)) . '</h2><p>' . $this->faker->paragraph() . '</p></div>';
         }
 
         $this->output .= '</div>';
