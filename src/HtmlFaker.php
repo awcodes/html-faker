@@ -27,6 +27,21 @@ class HtmlFaker
         return $this;
     }
 
+    public function headingWithLink(int | string | null $level = 2): static
+    {
+        $heading = $this->faker->words(rand(2, 3), true) . '<a href="#">' . $this->faker->words(rand(2, 3), true) . '</a>' . $this->faker->words(rand(2, 3), true);
+        $this->output .= '<h' . $level . '>' . Str::title($heading) . '</h' . $level . '>';
+
+        return $this;
+    }
+
+    public function emptyParagraph(): static
+    {
+        $this->output .= '<p></p>';
+
+        return $this;
+    }
+
     public function paragraphs(int $count = 1, bool $withRandomLinks = false): static
     {
         if ($withRandomLinks) {
@@ -119,6 +134,19 @@ class HtmlFaker
     public function table(): static
     {
         $this->output .= '<table><thead><tr><th>' . collect($this->faker->words(rand(3, 8)))->implode('</th><th>') . '</th></tr></thead><tbody><tr><td>' . collect($this->faker->words(rand(3, 8)))->implode('</td><td>') . '</td></tr><tr><td>' . collect($this->faker->words(rand(3, 8)))->implode('</td><td>') . '</td></tr></tbody></table>';
+
+        return $this;
+    }
+
+    public function grid(array $cols = [1,1,1]): static
+    {
+        $this->output .= '<div class="grid" data-type="responsive" data-cols="' . count($cols) . '" style="grid-template-columns: repeat(3, 1fr);" data-stack-at="md">';
+
+        foreach ($cols as $col) {
+            $this->output .= '<div class="grid__column" data-col-span="' . $col . '" style="grid-column: span 1;"><h2>' . Str::title($this->faker->words(rand(3, 8), true)) . '</h2><p>' . $this->faker->paragraph(). '</p></div>';
+        }
+
+        $this->output .= '</div>';
 
         return $this;
     }
