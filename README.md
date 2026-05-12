@@ -3,6 +3,8 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/faker-html.svg?style=flat-square)](https://packagist.org/packages/awcodes/faker-html)
 [![Total Downloads](https://img.shields.io/packagist/dt/awcodes/faker-html.svg?style=flat-square)](https://packagist.org/packages/awcodes/faker-html)
 
+<!-- [docs_start] -->
+
 ## Installation
 
 You can install the package via composer:
@@ -32,6 +34,8 @@ HtmlFaker::make()
     ->table()
     ->generate(); // <-- this is required to generate the html
 ```
+
+<!-- [docs_end] -->
 
 ## Testing
 
