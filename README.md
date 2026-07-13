@@ -3,6 +3,9 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/faker-html.svg?style=flat-square)](https://packagist.org/packages/awcodes/faker-html)
 [![Total Downloads](https://img.shields.io/packagist/dt/awcodes/faker-html.svg?style=flat-square)](https://packagist.org/packages/awcodes/faker-html)
 
+> [!WARNING]
+> **This package is deprecated and no longer maintained.** Please use [awcodes/content-faker](https://github.com/awcodes/content-faker) instead.
+
 <!-- [docs_start] -->
 
 ## Installation
